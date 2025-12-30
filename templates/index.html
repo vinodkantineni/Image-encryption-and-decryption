@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Encryption & Decryption</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 Image Encryption & Decryption 🔓</h1>
+        </div>
+
+        <div class="content">
+            <!-- Encryption Section -->
+            <div class="section encrypt">
+                <h2>Encrypt Image</h2>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" id="encryptFile" name="file" accept="image/*" required>
+                    <div class="button-group">
+                        <button type="submit">Encrypt & Download</button>
+                        <button type="button" class="reset-btn"
+                            onclick="document.getElementById('encryptFile').value=''">RESET</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Decryption Section -->
+            <div class="section decrypt">
+                <h2>Decrypt Image</h2>
+                <form action="/decrypt" method="post" enctype="multipart/form-data">
+                    <input type="file" id="decryptFile" name="file" accept="image/*" required>
+                    <div class="button-group">
+                        <button type="submit">Decrypt & Download</button>
+                        <button type="button" class="reset-btn"
+                            onclick="document.getElementById('decryptFile').value=''">RESET</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- How it Works Section -->
+        <div class="explanation">
+            <h2>HOW ENCRYPTION AND DECRYPTION WORK?</h2>
+            <p>
+                Image encryption secures your photos by scrambling pixel data using mathematical algorithms and a secret
+                key.
+                This transforms a clear image (plaintext) into unreadable noise (ciphertext) to prevent unauthorized
+                access.
+                Decryption simply reverses this process, using the key to restore the original visuals.
+                The process involves converting images into numerical pixel data and applying transformations—such as
+                XOR or pixel shuffling—to alter the values.
+                The correct key allows these mathematical operations to be undone, revealing the hidden image.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
